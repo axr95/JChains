@@ -1,5 +1,7 @@
 package io.vedder.ml.markov.tokens;
 
+import java.io.Serializable;
+
 /**
  * Base class for all Tokens.
  * 
@@ -8,7 +10,7 @@ package io.vedder.ml.markov.tokens;
  * @author kyle
  *
  */
-public abstract class Token {
+public abstract class Token implements Serializable {
 
 	/**
 	 * Two {@link Token}s with the same internal data will have the same hash code. 

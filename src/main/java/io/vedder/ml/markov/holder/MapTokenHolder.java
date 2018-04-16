@@ -1,5 +1,6 @@
 package io.vedder.ml.markov.holder;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -16,10 +17,8 @@ import io.vedder.ml.markov.tokens.Token;
  * HashMap based implementation of {@link TokenHolder}.
  * 
  * @author kyle
- *
- * @param <T>
  */
-public class MapTokenHolder implements TokenHolder {
+public class MapTokenHolder implements TokenHolder, Serializable {
 
 	private Map<LookbackContainer, Map<Token, Integer>> tokenMap;
 	private Random r = null;

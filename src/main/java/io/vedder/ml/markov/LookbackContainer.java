@@ -1,5 +1,6 @@
 package io.vedder.ml.markov;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -7,7 +8,7 @@ import java.util.List;
 
 import io.vedder.ml.markov.tokens.Token;
 
-public class LookbackContainer {
+public class LookbackContainer implements Serializable {
 	private List<Token> tokenList = null;
 
 	private final int MAX_SIZE;
@@ -25,7 +26,6 @@ public class LookbackContainer {
 	 * Adds a token while ensuring that the maximum size property is maintained.
 	 * 
 	 * @param token
-	 * @param maxSize
 	 */
 	public void addToken(Token token) {
 		if (tokenList == null) {

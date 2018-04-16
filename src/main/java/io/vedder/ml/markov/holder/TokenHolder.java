@@ -5,8 +5,7 @@ import io.vedder.ml.markov.tokens.Token;
 
 /**
  * Data structure for storing and retrieving {@link LookbackContainer}s and Tokens.
- * @param mapInitialSize.
- * 
+ *
  * Different TokenHolders have different performance characteristics.
  */
 public interface TokenHolder {
