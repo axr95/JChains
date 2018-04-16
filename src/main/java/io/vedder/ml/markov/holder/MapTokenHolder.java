@@ -28,8 +28,13 @@ public class MapTokenHolder implements TokenHolder, Serializable {
 		tokenMap = new ConcurrentHashMap<LookbackContainer, Map<Token, Integer>>(mapInitialSize);
 	}
 
+	public MapTokenHolder(MapTokenHolder base) {
+		r = new Random();
+		tokenMap = new ConcurrentHashMap<LookbackContainer, Map<Token, Integer>>(base.tokenMap);
+	}
+
 	public void addToken(LookbackContainer lbc, Token next) {
-		Map<Token, Integer> nextElementMap = null;
+		Map<Token, Integer> nextElementMap;
 		if (tokenMap.containsKey(lbc)) {
 			nextElementMap = tokenMap.get(lbc);
 		} else {
@@ -77,7 +82,7 @@ public class MapTokenHolder implements TokenHolder, Serializable {
 
 	@Override
 	public String toString() {
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		List<String> lst = new LinkedList<String>();
 		for (Entry<LookbackContainer, Map<Token, Integer>> e : tokenMap.entrySet()) {
 			lst.add(e.toString() + "\n");
