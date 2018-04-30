@@ -27,7 +27,7 @@ public class FileGenerator extends Generator {
 
 		LookbackContainer c = new LookbackContainer(LOOKBACK, DELIMIT_TOKEN);
 		Token t = null;
-		while ((t = th.getNext(c)) != DELIMIT_TOKEN && t != null) {
+		while ((t = th.getNext(c)) != null && !(t.getClass() == DelimitToken.class)) {
 			line.add(t);
 			c.addToken(t);
 		}

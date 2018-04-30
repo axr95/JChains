@@ -6,6 +6,7 @@ import io.vedder.ml.markov.LookbackContainer;
 import io.vedder.ml.markov.holder.TokenHolder;
 import io.vedder.ml.markov.tokens.Token;
 import io.vedder.ml.markov.tokens.file.DelimitToken;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class FileTokenCollectionIterator implements Iterator<Token> {
 
@@ -30,13 +31,17 @@ public class FileTokenCollectionIterator implements Iterator<Token> {
 	}
 
 	public boolean hasNext() {
-		return (currentToken != null && currentToken != DELIMIT_TOKEN);
+		return (currentToken != null && !currentToken.equals(DELIMIT_TOKEN));
 	}
 
 	public Token next() {
 		Token t = currentToken;
 		currentToken = nextToken();
 		return t;
+	}
+
+	public void remove() {
+		throw new NotImplementedException();
 	}
 
 }
